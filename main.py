@@ -2,7 +2,9 @@ import sys
 
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-import untitled
+from untitled import Ui_MainWindow
+
+from pyqtSlot import Slot
 
 if __name__ == '__main__':
 
@@ -10,9 +12,11 @@ if __name__ == '__main__':
 
     MainWindow = QMainWindow()
 
-    ui = untitled.Ui_MainWindow()
+    ui = Ui_MainWindow()
 
     ui.setupUi(MainWindow)
+
+    Slot.connectSlot(ui)
 
     MainWindow.show()
 

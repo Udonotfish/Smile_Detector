@@ -1,15 +1,20 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'untitled.ui'
-#
-# Created by: PyQt5 UI code generator 5.11.3
-#
-# WARNING! All changes made in this file will be lost!
-
+import sys
+import cv2
+from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtWidgets import QApplication, QDialog, QFileDialog, QGridLayout, QLabel, QPushButton
+import numpy as np
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow
+import show_lip
+import check_smile
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+class win(QDialog):
+    def __init__(self):
+        # 初始化一个img的ndarry，用于存储图像
+        self.img = np.ndarray(())
+        super().__init__()
+
+    def initUI(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1316, 889)
         font = QtGui.QFont()
@@ -30,12 +35,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_85.setObjectName("horizontalLayout_85")
         self.frame_3 = QtWidgets.QFrame(self.widget_2)
         self.frame_3.setStyleSheet("border-radius:20px;\n"
-"border-style:outset;\n"
-"padding:20px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"border-image:url(C:/Users/FebalWu/Desktop/Smile_Detector-master/Smile_Detector-master/src_img/border.jpg);\n"
-"\n"
-"")
+                                   "border-style:outset;\n"
+                                   "padding:20px;\n"
+                                   "background-color: rgb(255, 255, 255);\n"
+                                   "border-image:url(C:/Users/FebalWu/Desktop/Smile_Detector-master/Smile_Detector-master/src_img/border.jpg);\n"
+                                   "\n"
+                                   "")
         self.frame_3.setFrameShape(QtWidgets.QFrame.Box)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_3.setObjectName("frame_3")
@@ -43,22 +48,23 @@ class Ui_MainWindow(object):
         self.horizontalLayout_89.setObjectName("horizontalLayout_89")
         self.srcImage = QtWidgets.QLabel(self.frame_3)
         self.srcImage.setStyleSheet("border-radius:50px;\n"
-"background-color: rgb(255, 255, 127);\n"
-"border-style:outset;\n"
-"padding:20px;\n"
-"border-image:url();")
+                                    "background-color: rgb(255, 255, 127);\n"
+                                    "border-style:outset;\n"
+                                    "padding:20px;\n"
+                                    "border-image:url();")
+        self.srcImage.setFixedSize(450, 760)
         self.srcImage.setObjectName("srcImage")
         self.horizontalLayout_89.addWidget(self.srcImage)
         self.horizontalLayout_85.addWidget(self.frame_3)
         self.frame = QtWidgets.QFrame(self.widget_2)
         self.frame.setStyleSheet("border-radius:20px;\n"
-"border-style:outset;\n"
-"padding:20px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"border-image:url(C:/Users/FebalWu/Desktop/Smile_Detector-master/Smile_Detector-master/src_img/border.jpg);\n"
-"\n"
-"\n"
-"")
+                                 "border-style:outset;\n"
+                                 "padding:20px;\n"
+                                 "background-color: rgb(255, 255, 255);\n"
+                                 "border-image:url(C:/Users/FebalWu/Desktop/Smile_Detector-master/Smile_Detector-master/src_img/border.jpg);\n"
+                                 "\n"
+                                 "\n"
+                                 "")
         self.frame.setFrameShape(QtWidgets.QFrame.Box)
         self.frame.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame.setObjectName("frame")
@@ -66,22 +72,22 @@ class Ui_MainWindow(object):
         self.horizontalLayout_87.setObjectName("horizontalLayout_87")
         self.processImage = QtWidgets.QLabel(self.frame)
         self.processImage.setStyleSheet("border-radius:50px;\n"
-"background-color: rgb(255, 255, 127);\n"
-"border-style:outset;\n"
-"padding:20px;\n"
-"border-image:url();")
+                                        "background-color: rgb(255, 255, 127);\n"
+                                        "border-style:outset;\n"
+                                        "padding:20px;\n"
+                                        "border-image:url();")
         self.processImage.setObjectName("processImage")
         self.horizontalLayout_87.addWidget(self.processImage)
         self.horizontalLayout_85.addWidget(self.frame)
         self.frame_4 = QtWidgets.QFrame(self.widget_2)
         self.frame_4.setStyleSheet("border-radius:20px;\n"
-"border-style:outset;\n"
-"padding:20px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"border-image:url(C:/Users/FebalWu/Desktop/Smile_Detector-master/Smile_Detector-master/src_img/border.jpg);\n"
-"\n"
-"\n"
-"")
+                                   "border-style:outset;\n"
+                                   "padding:20px;\n"
+                                   "background-color: rgb(255, 255, 255);\n"
+                                   "border-image:url(C:/Users/FebalWu/Desktop/Smile_Detector-master/Smile_Detector-master/src_img/border.jpg);\n"
+                                   "\n"
+                                   "\n"
+                                   "")
         self.frame_4.setFrameShape(QtWidgets.QFrame.Box)
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_4.setObjectName("frame_4")
@@ -89,22 +95,22 @@ class Ui_MainWindow(object):
         self.horizontalLayout_90.setObjectName("horizontalLayout_90")
         self.faceDetectImage = QtWidgets.QLabel(self.frame_4)
         self.faceDetectImage.setStyleSheet("border-radius:50px;\n"
-"background-color: rgb(255, 255, 127);\n"
-"border-style:outset;\n"
-"padding:20px;\n"
-"border-image:url();")
+                                           "background-color: rgb(255, 255, 127);\n"
+                                           "border-style:outset;\n"
+                                           "padding:20px;\n"
+                                           "border-image:url();")
         self.faceDetectImage.setObjectName("faceDetectImage")
         self.horizontalLayout_90.addWidget(self.faceDetectImage)
         self.horizontalLayout_85.addWidget(self.frame_4)
         self.frame_2 = QtWidgets.QFrame(self.widget_2)
         self.frame_2.setStyleSheet("border-radius:20px;\n"
-"border-style:outset;\n"
-"padding:20px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"border-image:url(C:/Users/FebalWu/Desktop/Smile_Detector-master/Smile_Detector-master/src_img/border.jpg);\n"
-"\n"
-"\n"
-"")
+                                   "border-style:outset;\n"
+                                   "padding:20px;\n"
+                                   "background-color: rgb(255, 255, 255);\n"
+                                   "border-image:url(C:/Users/FebalWu/Desktop/Smile_Detector-master/Smile_Detector-master/src_img/border.jpg);\n"
+                                   "\n"
+                                   "\n"
+                                   "")
         self.frame_2.setFrameShape(QtWidgets.QFrame.Box)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_2.setObjectName("frame_2")
@@ -112,10 +118,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_88.setObjectName("horizontalLayout_88")
         self.label_ = QtWidgets.QLabel(self.frame_2)
         self.label_.setStyleSheet("border-radius:50px;\n"
-"background-color: rgb(255, 255, 127);\n"
-"border-style:outset;\n"
-"padding:20px;\n"
-"border-image:url();")
+                                  "background-color: rgb(255, 255, 127);\n"
+                                  "border-style:outset;\n"
+                                  "padding:20px;\n"
+                                  "border-image:url();")
         self.label_.setObjectName("label_")
         self.horizontalLayout_88.addWidget(self.label_)
         self.horizontalLayout_85.addWidget(self.frame_2)
@@ -245,10 +251,10 @@ class Ui_MainWindow(object):
         self.openFile.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.openFile.setMouseTracking(True)
         self.openFile.setStyleSheet("background-color:rgb(51,114,250);\n"
-"color:rgb(255,255,255);\n"
-"border-radius:10px;\n"
-"border-style:outset;\n"
-"padding:20px;")
+                                    "color:rgb(255,255,255);\n"
+                                    "border-radius:10px;\n"
+                                    "border-style:outset;\n"
+                                    "padding:20px;")
         self.openFile.setAutoDefault(False)
         self.openFile.setDefault(False)
         self.openFile.setObjectName("openFile")
@@ -369,10 +375,10 @@ class Ui_MainWindow(object):
         self.imageProcess.setFont(font)
         self.imageProcess.setMouseTracking(True)
         self.imageProcess.setStyleSheet("background-color:rgb(51,114,250);\n"
-"color:rgb(255,255,255);\n"
-"border-radius:10px;\n"
-"border-style:outset;\n"
-"padding:20px;")
+                                        "color:rgb(255,255,255);\n"
+                                        "border-radius:10px;\n"
+                                        "border-style:outset;\n"
+                                        "padding:20px;")
         self.imageProcess.setObjectName("imageProcess")
         self.horizontalLayout_91.addWidget(self.imageProcess)
         self.verticalLayout_4 = QtWidgets.QVBoxLayout()
@@ -493,10 +499,10 @@ class Ui_MainWindow(object):
         self.faceDetect.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.faceDetect.setMouseTracking(True)
         self.faceDetect.setStyleSheet("background-color:rgb(51,114,250);\n"
-"color:rgb(255,255,255);\n"
-"border-radius:10px;\n"
-"border-style:outset;\n"
-"padding:20px;")
+                                      "color:rgb(255,255,255);\n"
+                                      "border-radius:10px;\n"
+                                      "border-style:outset;\n"
+                                      "padding:20px;")
         self.faceDetect.setObjectName("faceDetect")
         self.horizontalLayout_91.addWidget(self.faceDetect)
         self.verticalLayout_3 = QtWidgets.QVBoxLayout()
@@ -617,10 +623,10 @@ class Ui_MainWindow(object):
         self.machineLearn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.machineLearn.setMouseTracking(True)
         self.machineLearn.setStyleSheet("background-color:rgb(51,114,250);\n"
-"color:rgb(255,255,255);\n"
-"border-radius:10px;\n"
-"border-style:outset;\n"
-"padding:20px;")
+                                        "color:rgb(255,255,255);\n"
+                                        "border-radius:10px;\n"
+                                        "border-style:outset;\n"
+                                        "padding:20px;")
         self.machineLearn.setObjectName("machineLearn")
         self.horizontalLayout_91.addWidget(self.machineLearn)
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
@@ -734,10 +740,10 @@ class Ui_MainWindow(object):
         self.smileDetect.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.smileDetect.setMouseTracking(True)
         self.smileDetect.setStyleSheet("background-color:rgb(51,114,250);\n"
-"color:rgb(255,255,255);\n"
-"border-radius:10px;\n"
-"border-style:outset;\n"
-"padding:20px;")
+                                       "color:rgb(255,255,255);\n"
+                                       "border-radius:10px;\n"
+                                       "border-style:outset;\n"
+                                       "padding:20px;")
         self.smileDetect.setObjectName("smileDetect")
         self.horizontalLayout_91.addWidget(self.smileDetect)
         self.verticalLayout = QtWidgets.QVBoxLayout()
@@ -859,6 +865,12 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        # 信号与槽进行连接，信号可绑定普通成员函数
+        self.openFile.clicked.connect(self.openSlot)
+        self.imageProcess.clicked.connect(self.saveSlot)
+        self.faceDetect.clicked.connect(self.faceDetectSlot)
+        self.smileDetect.clicked.connect(self.smileDetectSlot)
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -872,3 +884,76 @@ class Ui_MainWindow(object):
         self.machineLearn.setText(_translate("MainWindow", "Machine Learning"))
         self.smileDetect.setText(_translate("MainWindow", "Smile Detect"))
 
+    def openSlot(self):
+        # 调用存储文件
+        self.fileName, tmp = QFileDialog.getOpenFileName(self, 'Open Image', 'Image', '*.png *.jpg *.bmp')
+        if self.fileName is '':
+            return
+        # 采用OpenCV函数读取数据
+        self.img = cv2.imread(self.fileName, -1)
+        if self.img.size == 1:
+            return
+        self.refreshShow()
+
+    def refreshShow(self):
+        # 提取图像的通道和尺寸，用于将OpenCV下的image转换成Qimage
+        height, width, channel = self.img.shape
+        bytesPerline = 3 * width
+        self.qImg = QImage(self.img.data, width, height, bytesPerline, QImage.Format_RGB888).rgbSwapped()
+        self.qImg.scaled(self.srcImage.size(), 1)
+        # 将QImage显示出来
+        self.srcImage.setScaledContents(1)
+        self.srcImage.setPixmap(QPixmap.fromImage(self.qImg))
+
+    def saveSlot(self):
+        # 调用存储文件dialog
+        fileName, tmp = QFileDialog.getSaveFileName(self, 'Save Image', 'Image', '*.png *.jpg *.bmp')
+        if fileName is '':
+            return
+        if self.img.size == 1:
+            return
+        # 调用OpenCV写入函数
+        cv2.imwrite(fileName, self.img)
+
+    def faceDetectSlot(self):
+        self.img = show_lip.faceDetectFunc(self.fileName)
+        if self.img.size == 1:
+            return
+        # 对图像做模糊处理，窗口设定为5*5
+        self.img = cv2.blur(self.img, (5, 5))
+        self.faceDetectShow()
+
+    def faceDetectShow(self):
+        height, width, channel = self.img.shape
+        bytesPerline = 3 * width
+        self.qImg = QImage(self.img.data, width, height, bytesPerline, QImage.Format_RGB888).rgbSwapped()
+        self.qImg.scaled(self.srcImage.size(), 1)
+        # 将QImage显示出来
+        self.faceDetectImage.setScaledContents(1)
+        self.faceDetectImage.setPixmap(QPixmap.fromImage(self.qImg))
+
+    def smileDetectSlot(self):
+        self.img = show_lip.faceDetectFunc(self.fileName)
+        if self.img.size == 1:
+            return
+        # 对图像做模糊处理，窗口设定为5*5
+        self.img = cv2.blur(self.img, (5, 5))
+        self.smileDetectShow()
+
+    def smileDetectShow(self):
+        height, width, channel = self.img.shape
+        bytesPerline = 3 * width
+        self.qImg = QImage(self.img.data, width, height, bytesPerline, QImage.Format_RGB888).rgbSwapped()
+        self.qImg.scaled(self.srcImage.size(), 1)
+        # 将QImage显示出来
+        self.faceDetectImage.setScaledContents(1)
+        self.faceDetectImage.setPixmap(QPixmap.fromImage(self.qImg))
+
+
+if __name__ == '__main__':
+    a = QApplication(sys.argv)
+    MainWindow = QMainWindow()
+    w = win()
+    w.initUI(MainWindow)
+    MainWindow.showMaximized()
+    sys.exit(a.exec_())
