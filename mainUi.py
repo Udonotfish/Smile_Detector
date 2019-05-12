@@ -13,6 +13,7 @@ class win(QDialog):
     def __init__(self):
         # 初始化一个img的ndarry，用于存储图像
         self.img = np.ndarray(())
+        self.binary = np.ndarray(())
         super().__init__()
 
     def initUI(self, MainWindow):
@@ -913,15 +914,16 @@ class win(QDialog):
     def imageProcessSlot(self):
         # get the file path
         self.img = cv2.imread(self.fileName, -1)
-
+        self.img = cv2.cvtColor(self.img, cv2.COLOR_RGB2GRAY)
+        ret, self.binary = cv2.threshold(self.img, 60, 255, cv2.THRESH_BINARY)
         # show imageProcess image
         self.imageProcessShow()
 
     def imageProcessShow(self):
         # 提取图像的通道和尺寸，用于将OpenCV下的image转换成Qimage
-        height, width, channel = self.img.shape
-        bytesPerline = 3 * width
-        self.qImg = QImage(self.img.data, width, height, bytesPerline, QImage.Format_RGB888).rgbSwapped()
+        height, width = self.binary.shape
+        bytesPerline = width
+        self.qImg = QImage(self.binary.data, width, height, bytesPerline, QImage.Format_Grayscale8).rgbSwapped()
         # 将QImage显示出来
         self.processImage.setScaledContents(1)
         self.processImage.setPixmap(QPixmap.fromImage(self.qImg))
