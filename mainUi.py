@@ -52,7 +52,7 @@ class win(QDialog):
                                     "border-style:outset;\n"
                                     "padding:20px;\n"
                                     "border-image:url();")
-        self.srcImage.setFixedSize(450, 760)
+        self.srcImage.setFixedSize(400, 600)
         self.srcImage.setObjectName("srcImage")
         self.horizontalLayout_89.addWidget(self.srcImage)
         self.horizontalLayout_85.addWidget(self.frame_3)
@@ -76,6 +76,7 @@ class win(QDialog):
                                         "border-style:outset;\n"
                                         "padding:20px;\n"
                                         "border-image:url();")
+        self.processImage.setFixedSize(400, 600)
         self.processImage.setObjectName("processImage")
         self.horizontalLayout_87.addWidget(self.processImage)
         self.horizontalLayout_85.addWidget(self.frame)
@@ -99,6 +100,7 @@ class win(QDialog):
                                            "border-style:outset;\n"
                                            "padding:20px;\n"
                                            "border-image:url();")
+        self.faceDetectImage.setFixedSize(400, 600)
         self.faceDetectImage.setObjectName("faceDetectImage")
         self.horizontalLayout_90.addWidget(self.faceDetectImage)
         self.horizontalLayout_85.addWidget(self.frame_4)
@@ -122,6 +124,7 @@ class win(QDialog):
                                   "border-style:outset;\n"
                                   "padding:20px;\n"
                                   "border-image:url();")
+        self.label_.setFixedSize(400, 600)
         self.label_.setObjectName("label_")
         self.horizontalLayout_88.addWidget(self.label_)
         self.horizontalLayout_85.addWidget(self.frame_2)
