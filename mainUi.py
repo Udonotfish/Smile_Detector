@@ -870,7 +870,7 @@ class win(QDialog):
 
         # 信号与槽进行连接，信号可绑定普通成员函数
         self.openFile.clicked.connect(self.openSlot)
-        self.imageProcess.clicked.connect(self.saveSlot)
+        self.imageProcess.clicked.connect(self.imageProcessSlot)
         self.faceDetect.clicked.connect(self.faceDetectSlot)
         self.smileDetect.clicked.connect(self.smileDetectSlot)
 
@@ -908,22 +908,26 @@ class win(QDialog):
         self.srcImage.setScaledContents(1)
         self.srcImage.setPixmap(QPixmap.fromImage(self.qImg))
 
-    def saveSlot(self):
-        # 调用存储文件dialog
-        fileName, tmp = QFileDialog.getSaveFileName(self, 'Save Image', 'Image', '*.png *.jpg *.bmp')
-        if fileName is '':
-            return
-        if self.img.size == 1:
-            return
-        # 调用OpenCV写入函数
-        cv2.imwrite(fileName, self.img)
+    def imageProcessSlot(self):
+        # get the file path
+        self.img = cv2.imread(self.fileName, -1)
+
+        # show imageProcess image
+        self.imageProcessShow()
+
+    def imageProcessShow(self):
+        # 提取图像的通道和尺寸，用于将OpenCV下的image转换成Qimage
+        height, width, channel = self.img.shape
+        bytesPerline = 3 * width
+        self.qImg = QImage(self.img.data, width, height, bytesPerline, QImage.Format_RGB888).rgbSwapped()
+        # 将QImage显示出来
+        self.processImage.setScaledContents(1)
+        self.processImage.setPixmap(QPixmap.fromImage(self.qImg))
 
     def faceDetectSlot(self):
         self.img = show_lip.faceDetectFunc(self.fileName)
         if self.img.size == 1:
             return
-        # 对图像做模糊处理，窗口设定为5*5
-        self.img = cv2.blur(self.img, (5, 5))
         self.faceDetectShow()
 
     def faceDetectShow(self):
@@ -936,21 +940,19 @@ class win(QDialog):
         self.faceDetectImage.setPixmap(QPixmap.fromImage(self.qImg))
 
     def smileDetectSlot(self):
-        self.img = show_lip.faceDetectFunc(self.fileName)
+        self.img = check_smile.smileDetectFunc(self.fileName)
         if self.img.size == 1:
             return
-        # 对图像做模糊处理，窗口设定为5*5
-        self.img = cv2.blur(self.img, (5, 5))
+        # show smileDetect image
         self.smileDetectShow()
 
     def smileDetectShow(self):
         height, width, channel = self.img.shape
         bytesPerline = 3 * width
         self.qImg = QImage(self.img.data, width, height, bytesPerline, QImage.Format_RGB888).rgbSwapped()
-        self.qImg.scaled(self.srcImage.size(), 1)
         # 将QImage显示出来
-        self.faceDetectImage.setScaledContents(1)
-        self.faceDetectImage.setPixmap(QPixmap.fromImage(self.qImg))
+        self.label_.setScaledContents(1)
+        self.label_.setPixmap(QPixmap.fromImage(self.qImg))
 
 
 if __name__ == '__main__':
