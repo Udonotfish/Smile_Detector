@@ -7,6 +7,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 import show_lip
 import check_smile
+import check_smile_from_camera
 
 class win(QDialog):
     def __init__(self):
@@ -873,6 +874,7 @@ class win(QDialog):
         self.imageProcess.clicked.connect(self.imageProcessSlot)
         self.faceDetect.clicked.connect(self.faceDetectSlot)
         self.smileDetect.clicked.connect(self.smileDetectSlot)
+        self.machineLearn.clicked.connect(self.machineLearnSlot)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -953,6 +955,10 @@ class win(QDialog):
         # 将QImage显示出来
         self.label_.setScaledContents(1)
         self.label_.setPixmap(QPixmap.fromImage(self.qImg))
+
+    def machineLearnSlot(self):
+        check_smile_from_camera.checkSmileFromCamera()
+
 
 
 if __name__ == '__main__':

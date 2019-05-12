@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d215a994-96a8-42dc-8c79-df3b84291f54" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/check_smile_from_camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/check_smile_from_camera.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_models/model_LSVC.m" beforeDir="false" afterPath="$PROJECT_DIR$/data/data_models/model_LSVC.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_models/model_MLPC.m" beforeDir="false" afterPath="$PROJECT_DIR$/data/data_models/model_MLPC.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_models/model_SGDC.m" beforeDir="false" afterPath="$PROJECT_DIR$/data/data_models/model_SGDC.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainUi.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainUi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/show_lip.py" beforeDir="false" afterPath="$PROJECT_DIR$/show_lip.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +33,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ML_ways_sklearn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="108" column="35" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
+            <state relative-caret-position="1770">
+              <caret line="59" column="28" lean-forward="true" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
               <folding>
                 <element signature="e#16#35#0" expanded="true" />
               </folding>
@@ -40,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/check_smile_from_camera.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="300">
+              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
               <folding>
                 <element signature="e#22#58#0" expanded="true" />
               </folding>
@@ -49,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/show_lip.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+            <state relative-caret-position="420">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="e#49#82#0" expanded="true" />
               </folding>
@@ -70,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainUi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="921" column="105" selection-start-line="921" selection-start-column="105" selection-end-line="921" selection-end-column="105" />
+            <state relative-caret-position="97">
+              <caret line="910" column="61" lean-forward="true" selection-start-line="902" selection-start-column="4" selection-end-line="910" selection-end-column="61" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -127,7 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>im</find>
       <find>path_pic</find>
       <find>imgs_nosmiles</find>
       <find>way_LR</find>
@@ -157,6 +161,7 @@
       <find>srcIm</find>
       <find>imageProcess</find>
       <find>srcImage</find>
+      <find>Machine Lea</find>
     </findStrings>
     <replaceStrings>
       <replace>im</replace>
@@ -194,15 +199,15 @@
         <option value="$PROJECT_DIR$/ML_wtih_transform.py" />
         <option value="$PROJECT_DIR$/README.rst" />
         <option value="$PROJECT_DIR$/get_features.py" />
-        <option value="$PROJECT_DIR$/check_smile_from_camera.py" />
         <option value="$PROJECT_DIR$/ML_ways_sklearn.py" />
         <option value="$PROJECT_DIR$/pyqtSlot.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/untitled.py" />
         <option value="$PROJECT_DIR$/save.py" />
-        <option value="$PROJECT_DIR$/show_lip.py" />
         <option value="$PROJECT_DIR$/check_smile.py" />
+        <option value="$PROJECT_DIR$/check_smile_from_camera.py" />
         <option value="$PROJECT_DIR$/mainUi.py" />
+        <option value="$PROJECT_DIR$/show_lip.py" />
       </list>
     </option>
   </component>
@@ -389,18 +394,18 @@
     <frame x="-8" y="-8" width="1691" height="917" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13732608" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13732608" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3090677" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3090677" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39846742" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.14814815" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.15581098" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32950193" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -449,16 +454,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ML_ways_sklearn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="108" column="35" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
-          <folding>
-            <element signature="e#16#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/data_imgs/test_imgs/i064qa-mn.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -471,16 +466,6 @@
           <caret line="41" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="e#1#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/show_lip.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding>
-            <element signature="e#49#82#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -502,16 +487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/check_smile_from_camera.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="e#22#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/check_smile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2310">
@@ -522,12 +497,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ML_ways_sklearn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1770">
+          <caret line="59" column="28" lean-forward="true" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
+          <folding>
+            <element signature="e#16#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/check_smile_from_camera.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding>
+            <element signature="e#22#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mainUi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="921" column="105" selection-start-line="921" selection-start-column="105" selection-end-line="921" selection-end-column="105" />
+        <state relative-caret-position="97">
+          <caret line="910" column="61" lean-forward="true" selection-start-line="902" selection-start-column="4" selection-end-line="910" selection-end-column="61" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/show_lip.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#49#82#0" expanded="true" />
           </folding>
         </state>
       </provider>

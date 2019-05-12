@@ -8,7 +8,6 @@ from get_features import get_features   # return the positions of feature points
 
 def faceDetectFunc(s):
     path_test_img = s
-
     detector = dlib.get_frontal_face_detector()
     predictor = dlib.shape_predictor('data/data_dlib_model/shape_predictor_68_face_landmarks.dat')
 
