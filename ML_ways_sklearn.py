@@ -135,7 +135,7 @@ def model_LSVC():
 # model_LSVC()
 
 
-# SGDC, Stochastic Gradient Decent Classifier, 随机梯度下降法求解(线性模型)
+# SGDC, Stochastic Gradient Decent Classifier, 随机梯度下降法分类(线性模型)
 def model_SGDC():
     # get data
     X_train_SGDC, X_test_SGDC, y_train_SGDC, y_test_SGDC = pre_data()

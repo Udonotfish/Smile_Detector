@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1316</width>
-    <height>889</height>
+    <width>1318</width>
+    <height>898</height>
    </rect>
   </property>
   <property name="font">
@@ -41,6 +41,18 @@
     </property>
     <item>
      <widget class="QWidget" name="widget_2" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>1314</width>
+        <height>650</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>577</height>
+       </size>
+      </property>
       <layout class="QHBoxLayout" name="horizontalLayout_85">
        <property name="leftMargin">
         <number>2</number>
@@ -82,7 +94,7 @@ padding:20px;
 border-image:url();</string>
             </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>1</string>
             </property>
            </widget>
           </item>
@@ -118,7 +130,7 @@ padding:20px;
 border-image:url();</string>
             </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>2</string>
             </property>
            </widget>
           </item>
@@ -154,7 +166,7 @@ padding:20px;
 border-image:url();</string>
             </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>3</string>
             </property>
            </widget>
           </item>
@@ -190,7 +202,7 @@ padding:20px;
 border-image:url();</string>
             </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>4</string>
             </property>
            </widget>
           </item>
@@ -2899,8 +2911,8 @@ padding:20px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1316</width>
-     <height>26</height>
+     <width>1318</width>
+     <height>23</height>
     </rect>
    </property>
   </widget>

@@ -9,6 +9,15 @@ import show_lip
 import check_smile
 import check_smile_from_camera
 
+class CommonHelper:
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def readQss(style):
+        with open(style, 'r') as f:
+            return f.read()
+
 class win(QDialog):
     def __init__(self):
         # 初始化一个img的ndarry，用于存储图像
@@ -17,6 +26,10 @@ class win(QDialog):
         super().__init__()
 
     def initUI(self, MainWindow):
+        styleFile = './style.qss'
+        qssStyle = CommonHelper.readQss(styleFile)
+        MainWindow.setStyleSheet(qssStyle)
+
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1316, 889)
         font = QtGui.QFont()
@@ -32,6 +45,7 @@ class win(QDialog):
         self.verticalLayout_7.setObjectName("verticalLayout_7")
         self.widget_2 = QtWidgets.QWidget(self.centralwidget)
         self.widget_2.setObjectName("widget_2")
+        self.widget_2.setMaximumHeight(650)
         self.horizontalLayout_85 = QtWidgets.QHBoxLayout(self.widget_2)
         self.horizontalLayout_85.setContentsMargins(2, 2, 2, 2)
         self.horizontalLayout_85.setObjectName("horizontalLayout_85")
@@ -632,7 +646,7 @@ class win(QDialog):
                                         "border-radius:10px;\n"
                                         "border-style:outset;\n"
                                         "padding:20px;")
-        self.machineLearn.setObjectName("machineLearn")
+        self.machineLearn.setObjectName("Camera Detect")
         self.horizontalLayout_91.addWidget(self.machineLearn)
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setSpacing(0)
@@ -887,7 +901,7 @@ class win(QDialog):
         self.openFile.setText(_translate("MainWindow", "Open File"))
         self.imageProcess.setText(_translate("MainWindow", "Image Process"))
         self.faceDetect.setText(_translate("MainWindow", "Face Detect"))
-        self.machineLearn.setText(_translate("MainWindow", "Machine Learning"))
+        self.machineLearn.setText(_translate("MainWindow", "Camera Detect"))
         self.smileDetect.setText(_translate("MainWindow", "Smile Detect"))
 
     def openSlot(self):
@@ -914,8 +928,9 @@ class win(QDialog):
     def imageProcessSlot(self):
         # get the file path
         self.img = cv2.imread(self.fileName, -1)
-        self.img = cv2.cvtColor(self.img, cv2.COLOR_RGB2GRAY)
-        ret, self.binary = cv2.threshold(self.img, 60, 255, cv2.THRESH_BINARY)
+        self.img = cv2.medianBlur(self.img, 5)
+        self.binary = cv2.cvtColor(self.img, cv2.COLOR_RGB2GRAY)
+        ret, self.binary = cv2.threshold(self.binary, 80, 255, cv2.THRESH_BINARY)
         # show imageProcess image
         self.imageProcessShow()
 
@@ -938,7 +953,6 @@ class win(QDialog):
         height, width, channel = self.img.shape
         bytesPerline = 3 * width
         self.qImg = QImage(self.img.data, width, height, bytesPerline, QImage.Format_RGB888).rgbSwapped()
-        self.qImg.scaled(self.srcImage.size(), 1)
         # 将QImage显示出来
         self.faceDetectImage.setScaledContents(1)
         self.faceDetectImage.setPixmap(QPixmap.fromImage(self.qImg))

@@ -53,8 +53,8 @@ def smileDetectFunc(s):
 
     img_test = cv2.imread(path_test_img)
 
-    faces = detector(img_test,1)
-    #print("Number of faces detected :".format(len(faces)))
+    faces = detector(img_test, 1)
+    print("Number of faces detected :", len(faces))
     for index, face in enumerate(faces):
         left = face.left()
         right = face.right()

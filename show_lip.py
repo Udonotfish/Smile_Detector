@@ -16,7 +16,7 @@ def faceDetectFunc(s):
 
     img_rd = cv2.imread(path_test_img)
 
-    faces = detector(img_rd,1)
+    faces = detector(img_rd, 1)
     print("Number of faces detected :".format(len(faces)))
     for index, face in enumerate(faces):
         left = face.left()
@@ -28,7 +28,7 @@ def faceDetectFunc(s):
     # Draw on the lip points
     for i in range(0, len(positions_lip), 2):
         print(positions_lip[i], positions_lip[i+1])
-        cv2.circle(img_rd, tuple([positions_lip[i], positions_lip[i+1]]), radius=1, color=(0, 255, 0))
+        cv2.circle(img_rd, tuple([positions_lip[i], positions_lip[i+1]]), radius=2, color=(0, 255, 0))
 
     return img_rd
     # cv2.namedWindow("img_read", 2)
