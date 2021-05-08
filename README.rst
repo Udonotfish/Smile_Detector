@@ -28,20 +28,3 @@ Training and testing smile-detector with machine learning models
 #. show_lip.py
 
    * 显示某人嘴唇的位置　
-
-More
-****
-
-
-For more details, please refer to my blog (in chinese) or mail to me /
-
-可以访问我的博客获取本项目的更详细介绍，如有问题可以邮件联系我:
-
-* Blog: https://www.cnblogs.com/AdaminXie/p/8367348.html
-
-* Mail: coneypo@foxmail.com
-
-
-仅限于交流学习, 商业合作勿扰;
-
-Thanks for your support.
